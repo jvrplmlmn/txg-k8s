@@ -20,7 +20,3 @@ kubectl wait \
     -l app.kubernetes.io/name=greeter-tamedia \
     -n example
 echo
-
-echo "# Create the ingress resource"
-kubectl apply -f k8s/ingress/example_dot_com.yaml
-echo
