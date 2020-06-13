@@ -14,7 +14,7 @@ minikube addons enable ingress-dns
 
 # Additional scripts specific for a OS
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    bash scripts/_minikube-up-ingress-dns-osx.sh
+    bash scripts/minikube/up-ingress-dns-osx.sh
 else
-    bash scripts/_minikube-up-ingress-dns-other.sh
+    bash scripts/minikube/up-ingress-dns-other.sh
 fi
