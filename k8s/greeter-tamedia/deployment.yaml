@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: greeter-tamedia
+  namespace: example
   labels:
     app.kubernetes.io/name: greeter-tamedia
 spec:

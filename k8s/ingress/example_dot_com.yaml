@@ -2,7 +2,8 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: example-ingress
+  name: example
+  namespace: example
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     # Assuming that this will be for a domain that we actually own,
