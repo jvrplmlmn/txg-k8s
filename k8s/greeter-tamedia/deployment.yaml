@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeter-tamedia
+  labels:
+    app.kubernetes.io/name: greeter-tamedia
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: greeter-tamedia
+  template:
+    metadata:
+      labels:
+        app: greeter-tamedia
+    spec:
+      containers:
+      - name: greeter-tamedia
+        image: jvrplmlmn/greeter:latest
+        ports:
+          - name: http-port
+            containerPort: 11130
+        env:
+        - name: GREETER_PORT
+          value: "11130"
+        - name: GREETER_ENDPOINT
+          value: "/tamedia"
+        - name: GREETER_GREETING
+          value: "Hello Tamedia from Javier"
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: http-port
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: http-port
